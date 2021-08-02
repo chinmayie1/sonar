@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="50b22a4c-8dcb-4467-a0e0-d954872b9c52" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="sonarFlow" doc:id="2a427437-759e-4939-8c15-73e9fd3e5a33" >
+		<http:listener doc:name="Listener" doc:id="3e16adeb-9d5c-41b5-aab7-4e935fb9c5b5" config-ref="HTTP_Listener_config" path="/sonar"/>
+		<set-payload value='#["Hii sonar"]' doc:name="Set Payload" doc:id="8fe73a6d-f19d-4d35-b599-3bb2b7725d8b" />
+	</flow>
+</mule>
